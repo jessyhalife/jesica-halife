@@ -1,31 +1,54 @@
+import React from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-
+import { BsMoon, BsSun } from "react-icons/bs";
 export default function Home() {
+  const [theme, setTheme] = React.useState("light");
+
+  React.useEffect(() => {
+    if (theme === "light")
+      document.getElementById("container").classList.remove("dark");
+    else document.getElementById("container").classList.add("dark");
+  }, [theme]);
+
+  React.useEffect(() => {
+    const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkTheme) setTheme("dark");
+  }, []);
   return (
-    <div className={styles.container}>
+    <div id="container" className="container">
       <Head>
         <title>Jesica Halife</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <p className={styles.description}>
-          <h1 className={styles.title} style={{textAlign:"left", marginBottom: "0.5em"}}>Hi 👋🏻</h1>
-          <h2 className={styles.title}>I'm Jesica Halife</h2>
+      <main className="main">
+        <button
+          className="toggleTheme"
+          onClick={() =>
+            setTheme((theme) => (theme === "light" ? "dark" : "light"))
+          }
+        >
+          {theme === "light" ? (
+            <BsMoon size={24} color="#121212" />
+          ) : (
+            <BsSun size={24} color="whitesmoke" />
+          )}
+        </button>
+        <p className="description">
+          <h1>Hi 👋🏻, I'm Jesica Halife</h1>
           <h2>
-            I build <span className={styles.marker}>things.</span>
+            I build <span className="marker">things.</span>
           </h2>
-          <code className={styles.code}>
+          <code className="code">
             Software Engineer, 10+ years of experience
           </code>
         </p>
-        <div style={{ textAlign: "center" }}>
-          <div className={styles.contact}>
+        <div>
+          <div className="contact">
             <a href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
             <a href="https://github.com/jessyhalife">Github</a>
           </div>
-          <h3 className={styles.mail}>
+          <h3 className="mail">
             or reach me at{" "}
             <a href="mailto:halife.jessy@gmail.com">halife.jessy@gmail.com</a>{" "}
             🚀
