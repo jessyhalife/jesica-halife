@@ -1,26 +1,30 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import Head from "next/head";
 import { BsMoon, BsSun } from "react-icons/bs";
 import Wordle from "../components/Wordle";
 import Technologies from "../components/Technologies";
-
 import strings from '../strings.json';
+import { Mixpanel } from "../mixpanel";
 
 export default function Home() {
-  const [theme, setTheme] = React.useState("light");
-  const [lang, setLang] = React.useState("en")
-
-  React.useEffect(() => {
+  const [theme, setTheme] = useState("light");
+  const [lang, setLang] = useState("en")
+  useEffect(() => {
     if (theme === "light")
       document.getElementById("container").classList.remove("dark");
     else document.getElementById("container").classList.add("dark");
   }, [theme]);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    Mixpanel.track('Page View');
     const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
     if (darkTheme) setTheme("dark");
   }, []);
 
+  function handleLanguageSwitch () {
+    Mixpanel.track("Switched language", {lang: lang === "en" ? "es" : "en"}); 
+    setLang(prev => prev === "en" ? "es" : "en")
+  }
   return (
     <>
       <div id="container" className="container">
@@ -31,7 +35,7 @@ export default function Home() {
         <main className="main">
           <div className="description">
             <div className="options">
-              <button onClick={()=> setLang(prev => prev === "en" ? "es" : "en")} className="language">{lang === "en" ? "ESP" : "ENG"}</button>
+              <button onClick={handleLanguageSwitch}   className="language">{lang === "en" ? "ESP" : "ENG"}</button>
               <button
                 className="toggleTheme"
                 onClick={() =>
@@ -60,9 +64,9 @@ export default function Home() {
             <Technologies />
           </section>
           <div className="mail">
-            <a href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
-            <a href="https://github.com/jessyhalife">Github</a>
-            <a href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
+            <a onClick={()=> Mixpanel.track("Linkedin click")} target="_blank" href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
+            <a onClick={()=> Mixpanel.track("Github click")} href="https://github.com/jessyhalife" target="_blank">Github</a>
+            <a onClick={()=> Mixpanel.track("Email click")} href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
           </div>
         </main>
 
