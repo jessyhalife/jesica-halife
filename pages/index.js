@@ -8,7 +8,8 @@ import strings from '../strings.json';
 
 export default function Home() {
   const [theme, setTheme] = React.useState("light");
-  const [lang, setLang] = React.useState("es")
+  const [lang, setLang] = React.useState("en")
+
   React.useEffect(() => {
     if (theme === "light")
       document.getElementById("container").classList.remove("dark");
@@ -44,10 +45,11 @@ export default function Home() {
                 )}
               </button>
             </div>
-            <h1>{strings.hi[lang]} 👋🏻 , &nbsp;{strings.Iam[lang]} Jesica Halife</h1>
+            <h1>{strings.hi[lang]} 👋🏻 {lang === "en" ? `, ${" "}` : <br/>}{strings.Iam[lang]} Jesica Halife</h1>
             <div className="subtitle">
               <h2>{strings.ibuild[lang]}</h2>
-              <Wordle words={strings.wordleOpts[lang]} word={strings.wordle[lang]}/>
+              {lang === "en" && <Wordle words={strings.wordleOpts["en"]} word={strings.wordle["en"]}/>}
+              {lang === "es" && <Wordle words={strings.wordleOpts["es"]} word={strings.wordle["es"]}/>}
             </div>
             <code className="code">
               fullstack software engineer

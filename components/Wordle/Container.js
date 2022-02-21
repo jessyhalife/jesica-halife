@@ -16,9 +16,6 @@ const Container = ({words, word}) => {
     return () => clearInterval(interval);
   }, []);
   
-  React.useEffect(() => {
-    setCurrent(words[0])
-  }, [words, word])
   
   return (
     <>
