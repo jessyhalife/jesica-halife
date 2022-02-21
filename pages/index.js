@@ -3,9 +3,12 @@ import Head from "next/head";
 import { BsMoon, BsSun } from "react-icons/bs";
 import Wordle from "../components/Wordle";
 import Technologies from "../components/Technologies";
+
+import strings from '../strings.json';
+
 export default function Home() {
   const [theme, setTheme] = React.useState("light");
-
+  const [lang, setLang] = React.useState("es")
   React.useEffect(() => {
     if (theme === "light")
       document.getElementById("container").classList.remove("dark");
@@ -24,38 +27,40 @@ export default function Home() {
           <title>Jesica Halife</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
         <main className="main">
-          <button
-            className="toggleTheme"
-            onClick={() =>
-              setTheme((theme) => (theme === "light" ? "dark" : "light"))
-            }
-          >
-            {theme === "light" ? (
-              <BsMoon size={24} color="#121212" />
-            ) : (
-              <BsSun size={24} color="whitesmoke" />
-            )}
-          </button>
           <div className="description">
-            <h1>Hi 👋🏻, I'm Jesica Halife</h1>
+            <div className="options">
+              <button onClick={()=> setLang(prev => prev === "en" ? "es" : "en")} className="language">{lang === "en" ? "ESP" : "ENG"}</button>
+              <button
+                className="toggleTheme"
+                onClick={() =>
+                  setTheme((theme) => (theme === "light" ? "dark" : "light"))
+                }
+              >
+                {theme === "light" ? (
+                  <BsMoon size={24} color="#121212" />
+                ) : (
+                  <BsSun size={24} color="whitesmoke" />
+                )}
+              </button>
+            </div>
+            <h1>{strings.hi[lang]} 👋🏻 , &nbsp;{strings.Iam[lang]} Jesica Halife</h1>
             <div className="subtitle">
-              <h2>I build</h2>
-              <Wordle />
+              <h2>{strings.ibuild[lang]}</h2>
+              <Wordle words={strings.wordleOpts[lang]} word={strings.wordle[lang]}/>
             </div>
             <code className="code">
               fullstack software engineer
             </code>
           </div>
           <section>
-            <h4>currently working and focused on &nbsp; 🔭</h4>
+            <h4>{strings.currently[lang]} &nbsp; 🔭</h4>
             <Technologies />
           </section>
           <div className="mail">
             <a href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
             <a href="https://github.com/jessyhalife">Github</a>
-            <a href="mailto:halife.jessy@gmail.com">Send me an email</a>
+            <a href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
           </div>
         </main>
 

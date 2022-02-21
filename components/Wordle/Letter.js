@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Letter = ({ letter, index }) => {
-  const word = ["T", "H", "I", "N", "G", "S"];
+const Letter = ({ letter, index, word }) => {
+  
   const [flip, setFlip] = React.useState(false)
 
   function getLetterState() {

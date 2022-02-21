@@ -1,0 +1,30 @@
+{
+    "hi": {
+        "en": "Hi",
+        "es": "Hola"
+    },
+    "Iam": {
+        "en": "I'm",
+        "es": "soy"
+    },
+    "ibuild": {
+        "en": "I build",
+        "es": "hago"
+    },
+    "currently":{
+        "en": "currently working and focused on",
+        "es": "actualmente trabajando y enfocada en"
+    },
+    "email": {
+        "en": "Send me an email",
+        "es": "Envíame un mail"
+    },
+    "wordle": {
+        "en": "THINGS",
+        "es": "COSAS"
+    },
+    "wordleOpts": {
+        "en": ["QUERTY","ASDFGH", "TINHGS", "THINGS"],
+        "es": ["QUERT","ASDFG", "CASOS", "COSAS"]
+    }
+}

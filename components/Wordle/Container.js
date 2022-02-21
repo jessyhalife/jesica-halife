@@ -2,23 +2,28 @@ import React from 'react'
 import Letter from './Letter'
 import {v4 as uuidv4} from 'uuid';
 
-const WORDS = ["QUERTY","ASDFGH", "TINHGS", "THINGS"];
-const Container = () => {
-  const [word, setWords] = React.useState(WORDS[0]);
+
+const Container = ({words, word}) => {
+  const [current, setCurrent] = React.useState(words[0]);
   React.useEffect(() => {
     let index = 1;
     const interval = setInterval(() => {
-      if (index < WORDS.length) {
-        setWords(WORDS[index]);
+      if (index < words.length) {
+        setCurrent(words[index]);
         index++;
       }
     }, 2000);
     return () => clearInterval(interval);
-  }, [])
+  }, []);
+  
+  React.useEffect(() => {
+    setCurrent(words[0])
+  }, [words, word])
+  
   return (
     <>
     <div>
-      {word.split("").map((letter, index) => <Letter letter={letter} index={index} key={uuidv4()}/>)}
+      {current.split("").map((letter, index) => <Letter letter={letter} index={index} key={uuidv4()} word={word}/>)}
     </div>
     <style jsx>{` div {
       display: flex;

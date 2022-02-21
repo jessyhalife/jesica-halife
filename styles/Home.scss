@@ -2,23 +2,18 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  
   
 }
 
 .main {
   width: 100%;
-  
-  
-  margin: auto;
-  padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 24px;
+  
 }
 
 footer {
@@ -58,11 +53,15 @@ footer {
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
   line-height: 1.5;
   font-size: 1.5rem;
 }
 
 .code {
+  max-width: fit-content;
+  align-self: center;
   background: #fafafa;
   border-radius: 5px;
   padding: 0.5rem;
@@ -162,6 +161,7 @@ h1, h2, h3, h4, h5 {
   
   .title,
   .description,
+  .language, 
   footer {
     color: gainsboro;
   }
@@ -183,7 +183,20 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.toggleTheme {
+.toggleTheme, .language {
   background: none;
   border: none;
+  cursor: pointer;
 }
+
+.options {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.language {
+  font-weight: bold;
+} 
