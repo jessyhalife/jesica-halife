@@ -1,7 +1,8 @@
 import React from 'react'
 import Letter from './Letter'
+import {v4 as uuidv4} from 'uuid';
 
-const WORDS = ["BLINKS","THREAT", "THINKS",  "THINGS"];
+const WORDS = ["QUERTY","ASDFGH", "TINHGS", "THINGS"];
 const Container = () => {
   const [word, setWords] = React.useState(WORDS[0]);
   React.useEffect(() => {
@@ -11,13 +12,13 @@ const Container = () => {
         setWords(WORDS[index]);
         index++;
       }
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [])
   return (
     <>
     <div>
-      {word.split("").map((letter, index) => <Letter letter={letter} index={index} key={`${index}_${letter}_${new Date().getMilliseconds()}}`}/>)}
+      {word.split("").map((letter, index) => <Letter letter={letter} index={index} key={uuidv4()}/>)}
     </div>
     <style jsx>{` div {
       display: flex;
