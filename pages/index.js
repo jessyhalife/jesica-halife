@@ -5,14 +5,15 @@ import Wordle from "../components/Wordle";
 import Technologies from "../components/Technologies";
 import strings from '../strings.json';
 import { Mixpanel } from "../mixpanel";
+import Image from 'next/image';
 
 export default function Home() {
   const [theme, setTheme] = useState("light");
   const [lang, setLang] = useState("en")
   useEffect(() => {
     if (theme === "light")
-      document.getElementById("container").classList.remove("dark");
-    else document.getElementById("container").classList.add("dark");
+      document.querySelector("body").classList.remove("dark");
+    else document.querySelector("body").classList.add("dark");
   }, [theme]);
 
   useEffect(() => {
@@ -49,19 +50,31 @@ export default function Home() {
         </header>
         <main>
           <section>
-            <h1>{strings.hi[lang]} 👋🏻 {lang === "en" ? `, ${" "}` : <br />}{strings.Iam[lang]} Jesica Halife</h1>
-            <h2>{strings.ibuild[lang]}</h2>
-            {lang === "en" && <Wordle words={strings.wordleOpts["en"]} word={strings.wordle["en"]} />}
-            {lang === "es" && <Wordle words={strings.wordleOpts["es"]} word={strings.wordle["es"]} />}
-            <code className="code">
-              fullstack software engineer
-            </code>
+            <h1>{strings.hi[lang]}<br />{strings.Iam[lang]} Jesica Halife</h1>
+            <div className="wordle">
+              <h2>{strings.ibuild[lang]}</h2>
+              {lang === "en" && <Wordle words={strings.wordleOpts["en"]} word={strings.wordle["en"]} />}
+              {lang === "es" && <Wordle words={strings.wordleOpts["es"]} word={strings.wordle["es"]} />}
+            </div>
           </section>
+          <code>
+            {`{/* fullstack software engineer */}`}
+          </code>
           <h4>{strings.currently[lang]} &nbsp; 🔭</h4>
           <Technologies />
-          <a onClick={() => Mixpanel.track("Linkedin click")} target="_blank" href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
-          <a onClick={() => Mixpanel.track("Github click")} href="https://github.com/jessyhalife" target="_blank">Github</a>
-          <a onClick={() => Mixpanel.track("Email click")} href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
+
+          <address>
+            <p>Let's get in touch</p>
+            <section>
+              <a onClick={() => Mixpanel.track("Linkedin click")} target="_blank" href="https://www.linkedin.com/in/jesica-halife/">
+                Linkedin
+              </a>
+              <a onClick={() => Mixpanel.track("Github click")} href="https://github.com/jessyhalife" target="_blank">
+                Github
+              </a>
+              <a onClick={() => Mixpanel.track("Email click")} href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
+            </section>
+          </address>
 
         </main>
         <footer>
