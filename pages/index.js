@@ -41,14 +41,14 @@ export default function Home() {
           <meta property="og:url" content="https://jessyha.life/" />
           <meta property="og:title" content="Hi 👋🏻 , I'm Jesica Halife" />
           <meta property="og:description" content="Fullstack software Engineer" />
-          <meta property="og:image" content="/og-jesica-halife.png" />
+          <meta property="og:image" content="https://i.postimg.cc/HxD04pm7/og-jesica-halife.png" />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://jessyha.life/" />
           <meta property="twitter:title" content="Hi 👋🏻 , I'm Jesica Halife" />
           <meta property="twitter:description" content="Fullstack software Engineer" />
-          <meta property="twitter:image" content="/og-jesica-halife.png" />
+          <meta property="twitter:image" content="https://i.postimg.cc/HxD04pm7/og-jesica-halife.png" />
         </Head>
         <main className="main">
           <div className="description">
