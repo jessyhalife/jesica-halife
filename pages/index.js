@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { BsMoon, BsSun } from "react-icons/bs";
 import Wordle from "../components/Wordle";
@@ -21,8 +21,8 @@ export default function Home() {
     if (darkTheme) setTheme("dark");
   }, []);
 
-  function handleLanguageSwitch () {
-    Mixpanel.track("Switched language", {lang: lang === "en" ? "es" : "en"}); 
+  function handleLanguageSwitch() {
+    Mixpanel.track("Switched language", { lang: lang === "en" ? "es" : "en" });
     setLang(prev => prev === "en" ? "es" : "en")
   }
   return (
@@ -31,11 +31,29 @@ export default function Home() {
         <Head>
           <title>Jesica Halife</title>
           <link rel="icon" href="/favicon.ico" />
+          {/* <!-- Primary Meta Tags --> */}
+          <title>Hi 👋🏻 , I'm Jesica Halife</title>
+          <meta name="title" content="Hi 👋🏻 , I'm Jesica Halife" />
+          <meta name="description" content="Fullstack software Engineer" />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jessyha.life/" />
+          <meta property="og:title" content="Hi 👋🏻 , I'm Jesica Halife" />
+          <meta property="og:description" content="Fullstack software Engineer" />
+          <meta property="og:image" content="/og-jesica-halife.png" />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://jessyha.life/" />
+          <meta property="twitter:title" content="Hi 👋🏻 , I'm Jesica Halife" />
+          <meta property="twitter:description" content="Fullstack software Engineer" />
+          <meta property="twitter:image" content="/og-jesica-halife.png" />
         </Head>
         <main className="main">
           <div className="description">
             <div className="options">
-              <button onClick={handleLanguageSwitch}   className="language">{lang === "en" ? "ESP" : "ENG"}</button>
+              <button onClick={handleLanguageSwitch} className="language">{lang === "en" ? "ESP" : "ENG"}</button>
               <button
                 className="toggleTheme"
                 onClick={() =>
@@ -49,11 +67,11 @@ export default function Home() {
                 )}
               </button>
             </div>
-            <h1>{strings.hi[lang]} 👋🏻 {lang === "en" ? `, ${" "}` : <br/>}{strings.Iam[lang]} Jesica Halife</h1>
+            <h1>{strings.hi[lang]} 👋🏻 {lang === "en" ? `, ${" "}` : <br />}{strings.Iam[lang]} Jesica Halife</h1>
             <div className="subtitle">
               <h2>{strings.ibuild[lang]}</h2>
-              {lang === "en" && <Wordle words={strings.wordleOpts["en"]} word={strings.wordle["en"]}/>}
-              {lang === "es" && <Wordle words={strings.wordleOpts["es"]} word={strings.wordle["es"]}/>}
+              {lang === "en" && <Wordle words={strings.wordleOpts["en"]} word={strings.wordle["en"]} />}
+              {lang === "es" && <Wordle words={strings.wordleOpts["es"]} word={strings.wordle["es"]} />}
             </div>
             <code className="code">
               fullstack software engineer
@@ -64,9 +82,9 @@ export default function Home() {
             <Technologies />
           </section>
           <div className="mail">
-            <a onClick={()=> Mixpanel.track("Linkedin click")} target="_blank" href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
-            <a onClick={()=> Mixpanel.track("Github click")} href="https://github.com/jessyhalife" target="_blank">Github</a>
-            <a onClick={()=> Mixpanel.track("Email click")} href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
+            <a onClick={() => Mixpanel.track("Linkedin click")} target="_blank" href="https://www.linkedin.com/in/jesica-halife/">Linkedin</a>
+            <a onClick={() => Mixpanel.track("Github click")} href="https://github.com/jessyhalife" target="_blank">Github</a>
+            <a onClick={() => Mixpanel.track("Email click")} href="mailto:halife.jessy@gmail.com">{strings.email[lang]}</a>
           </div>
         </main>
 
