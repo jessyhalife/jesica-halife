@@ -66,7 +66,7 @@ export default function Home () {
             <p>
               fullstack software engineer
             </p>
-            <small><i>(+15 years coding 👵🏻)</i></small>
+            <small><i>(+15 years 👵🏻)</i></small>
             <p>
               currently <i>@</i> <span className="aerolab">aerolab</span>
             </p>
