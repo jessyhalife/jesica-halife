@@ -9,7 +9,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -49,12 +49,23 @@ footer {
   text-align: center;
 }
 
+.description p {
+  margin: 0
+}
+
 .description {
   display: flex;
   flex-direction: column;
   line-height: 1.5;
   font-size: 1.5rem;
 }
+
+.description h1 {
+  align-self: flex-start;
+  padding-bottom: 2px;
+  border-bottom: 1px solid white;
+}
+
 
 .code {
   max-width: fit-content;
@@ -151,6 +162,16 @@ h1, h2, h3, h4, h5 {
   font-weight: bold;
 }
 
+.aerolab {
+  color: orange;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+small {
+  font-size: 16px
+}
+
 .dark {
   .main, footer {
     background-color: #121212;
@@ -178,6 +199,9 @@ h1, h2, h3, h4, h5 {
   h1, h2, h3, h4, h5 {
     color: white;
   }
+  p {
+    color: white;
+  }
 }
 
 .toggleTheme, .language {
@@ -197,3 +221,11 @@ h1, h2, h3, h4, h5 {
 .language {
   font-weight: bold;
 } 
+
+.stalkme{
+  margin-top: 24px; 
+}
+
+.stalkme p {
+  font-size: 20px;
+}

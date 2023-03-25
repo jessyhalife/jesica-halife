@@ -4,16 +4,16 @@
         "es": "Hola"
     },
     "Iam": {
-        "en": "I'm",
-        "es": "soy"
+        "en": "My name is",
+        "es": "Soy"
     },
     "ibuild": {
         "en": "I build",
         "es": "y hago"
     },
     "currently":{
-        "en": "currently working and focused on",
-        "es": "actualmente trabajando y enfocada en"
+        "en": "working and focused on",
+        "es": "trabajando y enfocada en"
     },
     "email": {
         "en": "Send me an email",
