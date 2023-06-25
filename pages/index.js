@@ -118,28 +118,6 @@ export default function Home() {
             </a>
           </div>
         </main>
-
-        <style jsx>{`
-          .subtitle {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-          }
-          h1,
-          h4 {
-            margin: 0;
-          }
-          section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            font-size: 0.875rem;
-          }
-        `}</style>
         <footer>
           <span>Made with ❤️&nbsp;by @jessyhalife</span>
           <span>{new Date().getFullYear()}</span>
