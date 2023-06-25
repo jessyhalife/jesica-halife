@@ -24,7 +24,6 @@ footer {
   align-items: center;
 }
 
-
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -50,7 +49,7 @@ footer {
 }
 
 .description p {
-  margin: 0
+  margin: 0;
 }
 
 .description {
@@ -65,7 +64,6 @@ footer {
   padding-bottom: 2px;
   border-bottom: 1px solid white;
 }
-
 
 .code {
   max-width: fit-content;
@@ -148,7 +146,11 @@ footer {
   padding: 0.7em;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   color: black;
 }
 .mail {
@@ -169,21 +171,23 @@ h1, h2, h3, h4, h5 {
 }
 
 small {
-  font-size: 16px
+  font-size: 16px;
 }
 
 .dark {
-  .main, footer {
+  .main,
+  footer {
     background-color: #121212;
   }
-  
+
   .title,
   .description,
-  .language, 
+  .language,
   footer {
     color: gainsboro;
   }
-  .marker, h4 {
+  .marker,
+  h4 {
     color: black;
   }
   .code {
@@ -196,7 +200,11 @@ small {
   .contact > a {
     background-color: #464444;
   }
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     color: white;
   }
   p {
@@ -204,7 +212,8 @@ small {
   }
 }
 
-.toggleTheme, .language {
+.toggleTheme,
+.language {
   background: none;
   border: none;
   cursor: pointer;
@@ -217,15 +226,34 @@ small {
   gap: 8px;
 }
 
-
 .language {
   font-weight: bold;
-} 
+}
 
-.stalkme{
-  margin-top: 24px; 
+.stalkme {
+  margin-top: 24px;
 }
 
 .stalkme p {
   font-size: 20px;
+}
+
+.currently {
+  background: #464444;
+  color: white;
+  align-self: center;
+  padding: 4px 8px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.now {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
